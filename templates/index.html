@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Research Assistant</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .result {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h2>🧠 Research Assistant</h2>
+  <form method="POST" action="/">
+    <label for="topic">Enter a topic:</label>
+    <input type="text" id="topic" name="topic" required>
+    <button type="submit">Research</button>
+  </form>
+  {% if summary %}
+  <div class="result">
+    <h3>Summary</h3>
+    <p>{{ summary }}</p>
+    <a href="{{ pdf_path }}" target="_blank">📄 Download PDF</a><br>
+    <a href="{{ json_path }}" target="_blank">🗂️ Download JSON</a>
+  </div>
+  {% endif %}
+</body>
+</html>
